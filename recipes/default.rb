@@ -20,5 +20,5 @@ end
 execute "adding pyenv initialization to your ~/.bashrc" do
   command %q{ printf "\nif which pyenv > /dev/null; then eval s\"$(pyenv init -)\"; fi\n" >> ~/.bashrc }
   user node['sprout']['user']
-  not_if { "grep 'which pyenv' ~/.bashrc" }
+  not_if "grep 'which pyenv' ~/.bashrc"
 end
