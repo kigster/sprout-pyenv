@@ -1,0 +1,25 @@
+SITE
+  remote: https://supermarket.getchef.com/api/v1
+  specs:
+    build-essential (2.2.4)
+    homebrew (2.0.3)
+      build-essential (>= 2.1.2)
+
+GIT
+  remote: https://github.com/pivotal-sprout/sprout-base
+  ref: master
+  sha: 1d8fc220053a45748d94cffa5397d717812c18b7
+  specs:
+    sprout-base (0.2.0)
+
+PATH
+  remote: .
+  specs:
+    sprout-pyenv (0.1.0)
+      homebrew (>= 0.0.0)
+      sprout-base (>= 0.0.0)
+
+DEPENDENCIES
+  sprout-base (>= 0)
+  sprout-pyenv (>= 0)
+
