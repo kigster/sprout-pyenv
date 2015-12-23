@@ -7,6 +7,10 @@ define :python_install do
   pyenv_cmd = node['sprout']['pyenv']['command']
   install_cmd = "#{pyenv_cmd} install #{python_version} #{options[:command_line_options]}"
 
+  execute "getting list of python versions" do
+    command "#{pyenv_cmd} install --list"
+  end
+
   execute "installing #{python_version} with pyenv: #{install_cmd}" do
     command install_cmd
     user params[:user] || node['sprout']['user']
