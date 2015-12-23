@@ -1,6 +1,6 @@
 name             'sprout-pyenv'
-maintainer       'Konstantin Gredeskoul'
-maintainer_email 'kigster@gmail.com'
+maintainer       'Konstantin Gredeskoul, ReinventONE, inc.'
+maintainer_email 'kig@reinvent.one'
 license          'MIT'
 description      'Installs/Configures pyenv'
 long_description IO.read(File.join(File.dirname(__FILE__), 'README.md'))
