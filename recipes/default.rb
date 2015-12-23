@@ -1,7 +1,9 @@
 pythons        = node['sprout']['pyenv']['pythons']
 default_python = node['sprout']['pyenv']['default_python']
 
-package 'pyenv'
+node.default['homebrew']['formulas'] = [ name: 'pyenv', head: true ]
+
+include_recipe 'homebrew::install_formulas'
 
 sprout_base_bash_it_enable_feature 'plugins/pyenv'
 
