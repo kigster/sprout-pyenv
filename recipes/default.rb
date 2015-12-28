@@ -19,8 +19,12 @@ execute "making #{default_python} with pyenv the default" do
   not_if { default_python.nil? }
 end
 
-execute "adding pyenv initialization to your ~/.bashrc" do
-  command %q{ printf "\nif which pyenv > /dev/null; then eval s\"$(pyenv init -)\"; fi\n" >> ~/.bashrc }
-  user node['sprout']['user']
-  not_if "grep 'which pyenv' ~/.bashrc"
+ruby_block 'append initialization of pyenv to ~/.bashrc' do
+  block do
+    File.open("#{ENV['HOME']}/.bashrc", 'a') do |f|
+      f.puts 'eval "$(pyenv init - 2>/dev/null)" '
+    end
+  end
+  action :run
+  not_if 'grep "pyenv init" ~/.bashrc'
 end
